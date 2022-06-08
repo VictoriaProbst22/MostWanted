@@ -224,7 +224,7 @@ function searchByTraits(people){
             break;
     
         case "occupation":
-            
+            results = searchByOccupation(people);
             break;
     
         default:
@@ -315,4 +315,18 @@ function searchByEyeColor(people){
     );
     console.log(results);
     return results
+}
+
+
+function searchByOccupation(people){
+    let userInput = prompt(" Please Enter an occupation: \nnurse\ndoctor\nstudent\nprogrammer\narchitect\nlandscaper\nassistant\n ");
+    let results = people.filter(
+        function(person){
+            if (userInput === person.occupation){
+                return true;
+            }
+        }
+    );
+    console.log(results);
+    return results;
 }
