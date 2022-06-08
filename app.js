@@ -31,7 +31,7 @@ function app(people) {
         case "no":
             //! TODO #4: Declare a searchByTraits (multiple traits) function //////////////////////////////////////////
                 //! TODO #4a: Provide option to search for single or multiple //////////////////////////////////////////
-            searchResults = searchByTraits(people);
+            searchResults = searchByUserDefinedTrait(people);
             break;
         default:
             // Re-initializes the app() if neither case was hit above. This is an instance of recursion.
@@ -67,7 +67,7 @@ function mainMenu(person, people) {
             //! TODO #1: Utilize the displayPerson function //////////////////////////////////////////
             // HINT: Look for a person-object stringifier utility function to help
             let personInfo = displayPerson(person[0]);
-            alert(personInfo);
+
             break;
         case "family":
             //! TODO #2: Declare a findPersonFamily function //////////////////////////////////////////
@@ -88,11 +88,6 @@ function mainMenu(person, people) {
         case "quit":
             // Stop application execution
             return;
-
-        case "test":
-            searchByTraits(people)
-            break;
-
         default:
             // Prompt user again. Another instance of recursion
             return mainMenu(person, people);
@@ -241,13 +236,6 @@ function searchByTraits(people){
             break;
     }
 }
-//     let results = people.filter(
-//         function(person) {   
-//          return true;
-//          }       
-//     );
-//     return results;
-// }
 
 
 /**
@@ -336,3 +324,18 @@ function searchByOccupation(people){
     console.log(results);
     return results;
 };
+
+
+
+function searchByUserDefinedTrait(people){
+ let userInputProp = prompt("What Trait would you like to search for?")
+ let userInputValue = prompt("Please Enter the Value Youd Like To Search For: ")
+ let results = people.filter(
+     function(person){
+        if (person[userInputProp] === userInputValue){
+            return true;
+        } 
+     }
+ );
+ return results;
+}
