@@ -145,6 +145,15 @@ function displayPeople(people) {
 function displayPerson(person) {
     let personInfo = `First Name: ${person.firstName}\n`;
     personInfo += `Last Name: ${person.lastName}\n`;
+    personInfo += `Gender: ${person.gender}\n`;
+    personInfo += `DOB: ${person.dob}\n`;
+    personInfo += `Height: ${person.height}\n`;
+    personInfo += `Weight: ${person.weight}\n`;
+    personInfo += `eyeColor: ${person.eyeColor}\n`;
+    personInfo += `Occupation: ${person.occupation}\n`;
+  
+    
+
     //! TODO #1a: finish getting the rest of the information to display //////////////////////////////////////////
     alert(personInfo);
 }
@@ -275,34 +284,32 @@ function searchByBirthdate(people){
 };
 
 
-
 function searchByHeight(people){
-    let userInput = prompt(` Please enter height: `);
+    let userInput = prompt("Please enter height:");
     let results = people.filter(
         function(person){
-          if (userInput === person.height){
-          return true;
+          if (+userInput === person.height){
+                return true;
           }
         }
     );
     console.log(results);
     return results; 
 
-}
-
+};
 
  function searchByWeight(people){
     let userInput = prompt("Do You Know Their Weight?");
     let results = people.filter(
         function(person){
-            if (userInput === person.weight){
+            if (+userInput === person.weight){
                 return true;
             }
         }
     );
     console.log(results);
     return results;
-}
+};
 
 function searchByEyeColor(people){
     let userInput = prompt("Please Enter an eyeColor: \nbrown\nblack\nhazel\nblue\ngreen ");
@@ -315,8 +322,7 @@ function searchByEyeColor(people){
     );
     console.log(results);
     return results
-}
-
+};
 
 function searchByOccupation(people){
     let userInput = prompt(" Please Enter an occupation: \nnurse\ndoctor\nstudent\nprogrammer\narchitect\nlandscaper\nassistant\n ");
@@ -329,4 +335,4 @@ function searchByOccupation(people){
     );
     console.log(results);
     return results;
-}
+};
