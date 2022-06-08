@@ -208,19 +208,19 @@ function searchByTraits(people){
             break;
     
         case "dob":
-            results = searchByBirthdate(people)
+            results = searchByBirthdate(people);
             break;
     
         case "height":
-            
+            results = searchByHeight(people);
             break;
     
         case "weight":
-            
+            results = searchByWeight(people);
             break;
     
         case "eyeColor":
-            
+            results = searchByEyeColor(people);
             break;
     
         case "occupation":
@@ -259,10 +259,10 @@ function searchByGender(people){
     );
     console.log(results);
     return results; 
-}
+};
 
 function searchByBirthdate(people){
-    let userInput = prompt(`Please Enter a Date Of Birth in mm/dd/yr Format: `);
+    let userInput = prompt("Please Enter a Date Of Birth in m/dd/yr Format: ");
     let results = people.filter(
         function(person){
             if(userInput === person.dob){
@@ -272,4 +272,47 @@ function searchByBirthdate(people){
     );
     console.log(results);
     return results;
+};
+
+
+
+function searchByHeight(people){
+    let userInput = prompt(` Please enter height: `);
+    let results = people.filter(
+        function(person){
+          if (userInput === person.height){
+          return true;
+          }
+        }
+    );
+    console.log(results);
+    return results; 
+
+}
+
+
+ function searchByWeight(people){
+    let userInput = prompt("Do You Know Their Weight?");
+    let results = people.filter(
+        function(person){
+            if (userInput === person.weight){
+                return true;
+            }
+        }
+    );
+    console.log(results);
+    return results;
+}
+
+function searchByEyeColor(people){
+    let userInput = prompt("Please Enter an eyeColor: \nbrown\nblack\nhazel\nblue\ngreen ");
+    let results = people.filter(
+        function(person){
+            if (userInput === person.eyeColor){
+                return true;
+            }
+        }
+    );
+    console.log(results);
+    return results
 }
