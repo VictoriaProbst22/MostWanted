@@ -208,7 +208,7 @@ function searchByTraits(people){
             break;
     
         case "dob":
-            
+            results = searchByBirthdate(people)
             break;
     
         case "height":
@@ -259,4 +259,17 @@ function searchByGender(people){
     );
     console.log(results);
     return results; 
+}
+
+function searchByBirthdate(people){
+    let userInput = prompt(`Please Enter a Date Of Birth in mm/dd/yr Format: `);
+    let results = people.filter(
+        function(person){
+            if(userInput === person.dob){
+                return true;
+            }
+        }
+    );
+    console.log(results);
+    return results;
 }
