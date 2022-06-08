@@ -88,6 +88,11 @@ function mainMenu(person, people) {
         case "quit":
             // Stop application execution
             return;
+
+        case "test":
+            searchByTraits(people)
+            break;
+            
         default:
             // Prompt user again. Another instance of recursion
             return mainMenu(person, people);
@@ -184,3 +189,52 @@ function chars(input) {
 
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
+
+/**
+ * this function will take in user input in order
+ *  to filter the people data set down to a smaller 
+ * collection of objects that match the users query.
+ * @param {Array} people     a collection of people objects
+ * @returns {Array}          a collection of people objects
+ */
+
+function searchByTraits(people){
+    let userInput = prompt(`Please Enter What Specific Trait You Would Like To Search By: \n gender\ndob\nheight\nweight\neyeColor\noccupation:`)
+    switch (userInput) {
+        case "gender":
+            
+            break;
+    
+        case "dob":
+            
+            break;
+    
+        case "height":
+            
+            break;
+    
+        case "weight":
+            
+            break;
+    
+        case "eyeColor":
+            
+            break;
+    
+        case "occupation":
+            
+            break;
+    
+        default:
+            searchByTraits(people)
+            break;
+    }
+
+    let results = people.filter(
+        function(person) {   
+         return true;
+         } 
+            
+    );
+    return results;
+}
