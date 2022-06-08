@@ -92,7 +92,7 @@ function mainMenu(person, people) {
         case "test":
             searchByTraits(people)
             break;
-            
+
         default:
             // Prompt user again. Another instance of recursion
             return mainMenu(person, people);
@@ -200,9 +200,11 @@ function chars(input) {
 
 function searchByTraits(people){
     let userInput = prompt(`Please Enter What Specific Trait You Would Like To Search By: \n gender\ndob\nheight\nweight\neyeColor\noccupation:`)
+    let results;
+   
     switch (userInput) {
         case "gender":
-            
+            results = searchByGender(people);
             break;
     
         case "dob":
@@ -229,12 +231,32 @@ function searchByTraits(people){
             searchByTraits(people)
             break;
     }
+}
+//     let results = people.filter(
+//         function(person) {   
+//          return true;
+//          }       
+//     );
+//     return results;
+// }
 
+
+/**
+ * This function takes in a collection of people-objects
+ * inside an array and returns a collection of people-objects
+ * that match the requested gender by the user
+ * @param {Array} people    collectin of people objects
+ * @returns{Array}          collection of people objects
+ */
+function searchByGender(people){
+    let userInput = prompt("Please Select a Gender to Search By: \n Female\n  Male");
     let results = people.filter(
-        function(person) {   
-         return true;
-         } 
-            
+        function(person){
+          if (userInput === person.gender){
+          return true;
+          }
+        }
     );
-    return results;
+    console.log(results);
+    return results; 
 }
