@@ -67,7 +67,7 @@ function mainMenu(person, people) {
             //! TODO #1: Utilize the displayPerson function //////////////////////////////////////////
             // HINT: Look for a person-object stringifier utility function to help
             let personInfo = displayPerson(person[0]);
-
+            alert(personInfo)
             break;
         case "family":
             //! TODO #2: Declare a findPersonFamily function //////////////////////////////////////////
@@ -88,6 +88,9 @@ function mainMenu(person, people) {
         case "quit":
             // Stop application execution
             return;
+        case "test":
+            findPersonFamily(person);
+            break;
         default:
             // Prompt user again. Another instance of recursion
             return mainMenu(person, people);
@@ -145,13 +148,15 @@ function displayPerson(person) {
     personInfo += `Height: ${person.height}\n`;
     personInfo += `Weight: ${person.weight}\n`;
     personInfo += `eyeColor: ${person.eyeColor}\n`;
-    personInfo += `Occupation: ${person.occupation}\n`;
-  
+    personInfo += `Occupation: ${person.occupation}\n`
+   
+    return(personInfo);
+}
     
 
     //! TODO #1a: finish getting the rest of the information to display //////////////////////////////////////////
-    alert(personInfo);
-}
+   
+
 // End of displayPerson()
 
 /**
@@ -255,7 +260,7 @@ function searchByGender(people){
         }
     );
     console.log(results);
-    return results; 
+    return results;
 };
 
 function searchByBirthdate(people){
@@ -337,5 +342,51 @@ function searchByUserDefinedTrait(people){
         } 
      }
  );
+ console.log(results);
  return results;
 }
+
+
+/**I know I want to find this 'persons' family, specifically Spouses, Parents, Descendants
+ * Im going to get a specific object in the 'Persons' array [currentSpouse, parents]
+ *  @param {Array} person 
+ *
+ */
+function findPersonFamily(person){
+    let personInfo = "";
+    alert(
+        person.map(function (person) {
+                return `Current Spouse: ${person.currentSpouse}\n Parents:${person.parents} `;
+            })
+            .join("\n")
+    );
+}
+// En
+
+//Now It pops up with currentSpouse# and Parent#
+//I need to connect the currentSpouse#/parent# and print a name thats connected to that
+//
+
+
+
+// tempPeople = people
+// while (user is still looking,)
+//  ask use for traits
+//  switch/case (response)
+//      case gender
+//          tempPeople = searchByGender(tempPeople)
+//      case eye Color
+//          tempPeople = searchByeyeColor(tempPeople)
+//
+//  display results
+//  chosen a person
+
+
+// chosenPerson = 
+// while loop (???)
+//  prompt (done?, info, family, descendents)
+//  switch/case
+//      displayFamily(chosenPerson)
+//      displayInfo(chosePerson) // DONE
+//      displayDescendants(chosenPerson)
+//      quit
