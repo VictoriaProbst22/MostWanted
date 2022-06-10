@@ -32,6 +32,7 @@ function app(people) {
             //! TODO #4: Declare a searchByTraits (multiple traits) function //////////////////////////////////////////
                 //! TODO #4a: Provide option to search for single or multiple //////////////////////////////////////////
             searchResults = searchByUserDefinedTrait(people);
+            alert(searchResults);
             break;
         default:
             // Re-initializes the app() if neither case was hit above. This is an instance of recursion.
@@ -89,7 +90,7 @@ function mainMenu(person, people) {
             // Stop application execution
             return;
         case "test":
-            findPersonFamily(person);
+            findPersonFamily(person[0], people);
             break;
         default:
             // Prompt user again. Another instance of recursion
@@ -352,20 +353,69 @@ function searchByUserDefinedTrait(people){
  *  @param {Array} person 
  *
  */
-function findPersonFamily(person){
-    let personInfo = "";
-    alert(
-        person.map(function (person) {
-                return `Current Spouse: ${person.currentSpouse}\n Parents:${person.parents} `;
-            })
-            .join("\n")
-    );
-}
-// En
+/**The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+ * params of an array need an ELEMENT being processed, the INDEX of the current ELEMENT being processed, the ARRAY on which filter() was called.
+ * RETURN a new array with the elements that pass the test. IF NO ELEMENTS PASS THE TEST THE ARRAY WILL RETURN EMPTY
+ */
 
+function findPersonFamily(person, people){
+    let filterSpouse = people.filter(
+        function(el){
+           if(person.id === el.currentSpouse){
+               return true;
+           }
+           
+        });
+    let filterParents = people.filter(
+        function(el){
+            if(person.parents.includes(el.id)){
+                return true;
+            }
+    });
+          
+        console.log(filterSpouse, filterParents);
+        return (filterSpouse, filterParents);
+       
+}
+
+        //I need to write a function that finds them by ID and then returns a name
+         
+      
+//Now It pops up with currentSpouse# and Parent#
+//I need to connect the currentSpouse#/parent# and print a name thats connected to that
+// I have a function set up that filters [People] 
+
+//The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+// map(function(el,[i],array))
+
+
+
+
+
+
+
+
+
+
+
+/**NOT FINISHED JUST ROUGH DRAFT OF SKELETON
+ * 
+ * I WANT THIS TO PROVIDE AN OUTPUT OF FAMILIES WITH THE SAME LAST NAME
+ */
+//function findPersonDescendants(person){ 
+//    alert(
+//         person.map(function (person) {
+//             return `Current Spouse: ${person.currentSpouse}\n Parents:${person.parents} `;
+//             })
+//            .join("\n")
+//    );
+//}
+//
 //Now It pops up with currentSpouse# and Parent#
 //I need to connect the currentSpouse#/parent# and print a name thats connected to that
 //
+
+
 
 
 
@@ -389,4 +439,3 @@ function findPersonFamily(person){
 //      displayFamily(chosenPerson)
 //      displayInfo(chosePerson) // DONE
 //      displayDescendants(chosenPerson)
-//      quit
