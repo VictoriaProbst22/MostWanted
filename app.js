@@ -32,7 +32,6 @@ function app(people) {
             //! TODO #4: Declare a searchByTraits (multiple traits) function //////////////////////////////////////////
                 //! TODO #4a: Provide option to search for single or multiple //////////////////////////////////////////
             searchResults = searchByUserDefinedTrait(people);
-            alert(searchResults);
             break;
         default:
             // Re-initializes the app() if neither case was hit above. This is an instance of recursion.
@@ -348,11 +347,8 @@ function searchByUserDefinedTrait(people){
 }
 
 
-/**I know I want to find this 'persons' family, specifically Spouses, Parents, Descendants
- * Im going to get a specific object in the 'Persons' array [currentSpouse, parents]
- *  @param {Array} person 
- *
- */
+
+
 /**The filter() method creates a new array with all elements that pass the test implemented by the provided function.
  * params of an array need an ELEMENT being processed, the INDEX of the current ELEMENT being processed, the ARRAY on which filter() was called.
  * RETURN a new array with the elements that pass the test. IF NO ELEMENTS PASS THE TEST THE ARRAY WILL RETURN EMPTY
@@ -366,27 +362,30 @@ function findPersonFamily(person, people){
            }
            
         });
-    let filterParents = people.filter(
-        function(el){
-            if(person.parents.includes(el.id)){
-                return true;
-            }
+        let filterParents = people.filter(
+            function(el){
+                if(person.parents.includes(el.id)){
+                    return true;
+                }       
+            });
+        let filterSibling = people.filter(
+            function(el){
+                if(person.lastName === el.lastName){
+                    return true;
+                }       
+        
     });
           
-        console.log(filterSpouse, filterParents);
-        return (filterSpouse, filterParents);
-       
+        console.log(filterSpouse, filterParents, filterSibling);
+        return (filterSpouse, filterParents, filterSibling);
+        
 }
 
         //I need to write a function that finds them by ID and then returns a name
          
       
-//Now It pops up with currentSpouse# and Parent#
-//I need to connect the currentSpouse#/parent# and print a name thats connected to that
-// I have a function set up that filters [People] 
 
-//The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
-// map(function(el,[i],array))
+
 
 
 
@@ -411,31 +410,5 @@ function findPersonFamily(person, people){
 //    );
 //}
 //
-//Now It pops up with currentSpouse# and Parent#
-//I need to connect the currentSpouse#/parent# and print a name thats connected to that
 //
 
-
-
-
-
-// tempPeople = people
-// while (user is still looking,)
-//  ask use for traits
-//  switch/case (response)
-//      case gender
-//          tempPeople = searchByGender(tempPeople)
-//      case eye Color
-//          tempPeople = searchByeyeColor(tempPeople)
-//
-//  display results
-//  chosen a person
-
-
-// chosenPerson = 
-// while loop (???)
-//  prompt (done?, info, family, descendents)
-//  switch/case
-//      displayFamily(chosenPerson)
-//      displayInfo(chosePerson) // DONE
-//      displayDescendants(chosenPerson)
