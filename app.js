@@ -401,14 +401,15 @@ function findPersonFamily(person, people){
  * 
  * I WANT THIS TO PROVIDE AN OUTPUT OF FAMILIES WITH THE SAME LAST NAME
  */
-//function findPersonDescendants(person){ 
-//    alert(
-//         person.map(function (person) {
-//             return `Current Spouse: ${person.currentSpouse}\n Parents:${person.parents} `;
-//             })
-//            .join("\n")
-//    );
-//}
-//
-//
 
+function findPersonDescendants(people, person){
+    let results = people.filter(
+        function(el){
+            if(person.lastName === el.lastName){
+                return true;
+            }
+        }
+    );
+    console.log(results);
+    return results;
+}
