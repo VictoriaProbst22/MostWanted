@@ -370,7 +370,7 @@ function findPersonFamily(person, people){
             });
         let filterSibling = people.filter(
             function(el){
-                if(person.lastName === el.lastName){
+                if(person.lastName === el.lastName && person.parents.includes(el.id)){
                     return true;
                 }       
         
@@ -381,35 +381,15 @@ function findPersonFamily(person, people){
         
 }
 
-        //I need to write a function that finds them by ID and then returns a name
-         
-      
 
-
-
-
-
-
-
-
-
-
-
-
-
-/**NOT FINISHED JUST ROUGH DRAFT OF SKELETON
- * 
- * I WANT THIS TO PROVIDE AN OUTPUT OF FAMILIES WITH THE SAME LAST NAME
- */
-
-function findPersonDescendants(people, person){
-    let results = people.filter(
+function findPersonDescendants(person, people){
+    let filteredPeople = people.filter(
         function(el){
             if(person.lastName === el.lastName){
                 return true;
             }
         }
     );
-    console.log(results);
-    return results;
-}
+    console.log(filteredPeople);
+    return filteredPeople;
+};
