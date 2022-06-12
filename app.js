@@ -88,9 +88,6 @@ function mainMenu(person, people) {
         case "quit":
             // Stop application execution
             return;
-        case "test":
-            findPersonFamily(person[0], people);
-            break;
         default:
             // Prompt user again. Another instance of recursion
             return mainMenu(person, people);
@@ -346,13 +343,6 @@ function searchByUserDefinedTrait(people){
  return results;
 }
 
-
-
-
-/**The filter() method creates a new array with all elements that pass the test implemented by the provided function.
- * params of an array need an ELEMENT being processed, the INDEX of the current ELEMENT being processed, the ARRAY on which filter() was called.
- * RETURN a new array with the elements that pass the test. IF NO ELEMENTS PASS THE TEST THE ARRAY WILL RETURN EMPTY
- */
 
 function findPersonFamily(person, people){
     let filterSpouse = people.filter(
