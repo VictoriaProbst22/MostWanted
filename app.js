@@ -32,6 +32,7 @@ function app(people) {
             //! TODO #4: Declare a searchByTraits (multiple traits) function //////////////////////////////////////////
                 //! TODO #4a: Provide option to search for single or multiple //////////////////////////////////////////
             searchResults = searchByUserDefinedTrait(people);
+            
             break;
         default:
             // Re-initializes the app() if neither case was hit above. This is an instance of recursion.
@@ -73,13 +74,13 @@ function mainMenu(person, people) {
             //! TODO #2: Declare a findPersonFamily function //////////////////////////////////////////
             // HINT: Look for a people-collection stringifier utility function to help
             let personFamily = findPersonFamily(person[0], people);
-            alert(personFamily);
+            alert(findPersonFamily(person[0], people));
             break;
         case "descendants":
             //! TODO #3: Declare a findPersonDescendants function //////////////////////////////////////////
             // HINT: Review recursion lecture + demo for bonus user story
             let personDescendants = findPersonDescendants(person[0], people);
-            alert(personDescendants);
+            alert(findPersonDescendants(person[0], people));
             break;
         case "restart":
             // Restart app() from the very beginning
@@ -367,7 +368,7 @@ function findPersonFamily(person, people){
     });
           
         console.log(filterSpouse, filterParents, filterSibling);
-        return (filterSpouse, filterParents, filterSibling);
+        return `Spouse: ${filterSpouse}\nParents: ${filterParents}\nSiblings: ${filterSibling}`;
         
 }
 
