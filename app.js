@@ -32,7 +32,7 @@ function app(people) {
             //! TODO #4: Declare a searchByTraits (multiple traits) function //////////////////////////////////////////
                 //! TODO #4a: Provide option to search for single or multiple //////////////////////////////////////////
             searchResults = searchByUserDefinedTrait(people);
-            
+        
             break;
         default:
             // Re-initializes the app() if neither case was hit above. This is an instance of recursion.
@@ -74,13 +74,13 @@ function mainMenu(person, people) {
             //! TODO #2: Declare a findPersonFamily function //////////////////////////////////////////
             // HINT: Look for a people-collection stringifier utility function to help
             let personFamily = findPersonFamily(person[0], people);
-            alert(findPersonFamily(person[0], people));
+            alert(personFamily)
             break;
         case "descendants":
             //! TODO #3: Declare a findPersonDescendants function //////////////////////////////////////////
             // HINT: Review recursion lecture + demo for bonus user story
             let personDescendants = findPersonDescendants(person[0], people);
-            alert(findPersonDescendants(person[0], people));
+            alert(personDescendants)
             break;
         case "restart":
             // Restart app() from the very beginning
@@ -238,6 +238,8 @@ function searchByTraits(people){
             searchByTraits(people)
             break;
     }
+    console.log(results);
+    return results;
 }
 
 
@@ -359,16 +361,17 @@ function findPersonFamily(person, people){
                     return true;
                 }       
             });
-        let filterSibling = people.filter(
+        let resultsThree = people.filter(
             function(el){
                 if(person.lastName === el.lastName && person.parents.includes(el.id)){
                     return true;
                 }       
         
     });
-          
-        console.log(filterSpouse, filterParents, filterSibling);
-        return `Spouse: ${filterSpouse}\nParents: ${filterParents}\nSiblings: ${filterSibling}`;
+          displayPeople(filterSpouse);
+          displayPeople(filterParents);
+          displayPeople(resultsThree);
+      
         
 }
 
@@ -381,6 +384,6 @@ function findPersonDescendants(person, people){
             }
         }
     );
-    console.log(filteredPeople);
-    return filteredPeople;
-};
+
+    displayPeople(filteredPeople);
+}
